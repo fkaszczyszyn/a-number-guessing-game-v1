@@ -7,6 +7,19 @@ def start_game(random_number, player_choice):
 
     while True:
         try:
+<<<<<<< HEAD
+            player_choice = int(input("Once again!    "))
+            attempts += 1
+
+            if player_choice < 1 or player_choice > 100:
+                print("Please guess a number within the specified range.")
+            elif player_choice < random_number:
+                print("It's higher!")
+            elif player_choice > random_number:
+                print("It's lower")
+            else:
+                print(f"You won in {attempts} attempts! The correct number is {random_number}.")
+=======
             player_choice == int(input("Once again!    "))
             attempts += 1
             if random_number <= player_choice:
@@ -15,6 +28,7 @@ def start_game(random_number, player_choice):
                 print("I's lower!")
             else:
                 print("You won!")
+>>>>>>> 8d649f00ff0dd023c320dd0047b2f15df40bc11a
                 sys.exit()
         except ValueError:
             print("Please enter a valid number.")
