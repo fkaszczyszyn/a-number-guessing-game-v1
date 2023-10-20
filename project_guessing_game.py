@@ -32,10 +32,10 @@ def start_game(random_number):
                 print(
                     f"You won in {attempts} attempts! Mean is {mean_test}, Mode is {mode_test}, Median is {median_test}, The correct number is {random_number}.")
                 total_attempts.append(attempts)
-                print(f"Best scores: {(total_attempts)}")
+                print(f"Best scores: {(min.total_attempts)}")
                 over_or_finish = input("Would you like to finish or start once again? 'Y' or 'N': ").strip().lower()
                 if over_or_finish in ['n', 'exit']:
-                    good_bye()
+                    print("Good Bye")
                     sys.exit()
                 elif over_or_finish == 'y':
                     random_number = random.randint(1, 100)
