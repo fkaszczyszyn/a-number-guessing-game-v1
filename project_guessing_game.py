@@ -31,6 +31,7 @@ def start_game(random_number):
             mode_test = mode(player_choice)
             player_choice.sort()
             median_test = median(player_choice)
+            mean_test = round(mean(player_choice))
 
             if int(choice) < 1 or int(choice) > 100:
                 print("Please guess a number within the specified range.")
@@ -40,18 +41,24 @@ def start_game(random_number):
                 print("It's lower! Try once again!")
             else:
                 print(
-                    f"You won in {attempts} attempts! Mode is {mode_test}, Median is {median_test}, The correct number is {random_number}.")
+                    f"You won in {attempts} attempts! Mean is {mean_test}, Mode is {mode_test}, Median is {median_test}, The correct number is {random_number}.")
+                total_attempts.append(attempts)
+                print(f"Total attempts: {(total_attempts)}")
                 over_or_finish = input("Would you like to finish or start once again? 'Y' or 'N': ").strip().lower()
                 if over_or_finish in ['n', 'exit']:
                     good_bye()
                     sys.exit()
                 elif over_or_finish == 'y':
                     random_number = random.randint(1, 100)
+                    attempts = 0
+                    player_choice = []
+
         except ValueError:
             print("Please enter a valid number.")
 
 # Main part of the program
 welcome = input("Press 'Y' to start or 'N' to exit: ").strip().lower()
+total_attempts = []  # Initialize the list to keep track of attempts
 
 if welcome == 'y':
     welcome_message()
