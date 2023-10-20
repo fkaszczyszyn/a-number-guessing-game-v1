@@ -2,17 +2,6 @@ import random
 import sys
 from statistics import mode, median, mean
 
-# Display a welcome message
-def welcome_message():
-    print(" *" * 50)
-    print("  " * 8 + "* " * 10 + "     WELCOME TO GUESS GAME!     " + "* " * 10)
-    print(" *" * 50)
-
-# Display a goodbye message
-def good_bye():
-    print(" *" * 50)
-    print("  " * 10 + "* " * 10 + "     GOODBYE     " + "* " * 10)
-    print(" *" * 50)
 
 # The main game function
 def start_game(random_number):
@@ -43,7 +32,7 @@ def start_game(random_number):
                 print(
                     f"You won in {attempts} attempts! Mean is {mean_test}, Mode is {mode_test}, Median is {median_test}, The correct number is {random_number}.")
                 total_attempts.append(attempts)
-                print(f"Total attempts: {(total_attempts)}")
+                print(f"Best scores: {(total_attempts)}")
                 over_or_finish = input("Would you like to finish or start once again? 'Y' or 'N': ").strip().lower()
                 if over_or_finish in ['n', 'exit']:
                     good_bye()
@@ -58,14 +47,14 @@ def start_game(random_number):
 
 # Main part of the program
 welcome = input("Press 'Y' to start or 'N' to exit: ").strip().lower()
-total_attempts = []  # Initialize the list to keep track of attempts
+total_attempts = []
 
 if welcome == 'y':
-    welcome_message()
+    print("Welcome to the guessing game!")
     random_number = random.randint(1, 100)
     start_game(random_number)
 elif welcome in ['n', 'exit']:
-    good_bye()
+    print("Good Bye")
     sys.exit()
 else:
     print("Please type only 'y' or 'n'")
