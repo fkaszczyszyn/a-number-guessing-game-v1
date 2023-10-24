@@ -14,12 +14,7 @@ def start_game(random_number):
             if choice == 'exit':
                 sys.exit()
 
-            player_choice.append(int(choice))
             attempts += 1
-            mode_test = mode(player_choice)
-            player_choice.sort()
-            median_test = median(player_choice)
-            mean_test = round(mean(player_choice))
 
             if int(choice) < 1 or int(choice) > 100:
                 print("Please guess a number within the specified range.")
@@ -28,6 +23,10 @@ def start_game(random_number):
             elif int(choice) > random_number:
                 print("It's lower! Try once again!")
             else:
+                total_attempts.append(attempts)
+                mode_test = mode(total_attempts)
+                mean_test = round(mean(total_attempts))
+                median_test = round(mean(total_attempts))
                 print(
                     f"You won in {attempts} attempts! Mean is {mean_test}, Mode is {mode_test}, Median is {median_test}, The correct number is {random_number}.")
                 total_attempts.append(attempts)
