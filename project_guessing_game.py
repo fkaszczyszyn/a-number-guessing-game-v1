@@ -5,7 +5,6 @@ from statistics import mode, median, mean
 # The main game function
 def start_game(random_number):
     attempts = 0
-    player_choice = []
 
     while True:
         try:
@@ -26,7 +25,7 @@ def start_game(random_number):
                 total_attempts.append(attempts)
                 mode_test = mode(total_attempts)
                 mean_test = round(mean(total_attempts))
-                median_test = round(mean(total_attempts))
+                median_test = median(total_attempts)
                 print(
                     f"You won in {attempts} attempts! Mean is {mean_test}, Mode is {mode_test}, Median is {median_test}, The correct number is {random_number}.")
                 total_attempts.append(attempts)
@@ -42,7 +41,7 @@ def start_game(random_number):
                 elif over_or_finish == 'y':
                     random_number = random.randint(1, 100)
                     attempts = 0
-                    player_choice = []
+
 
         except ValueError:
             print("Please enter a valid number.")
